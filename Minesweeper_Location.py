@@ -7,12 +7,16 @@ def bomben(bomb_numbers, size_x, size_y):
     durchläufe = 0
     bomben = []
     while (durchläufe < bomb_numbers):
-        X_Cordinate = rd.randint(0, size_x)
-        Y_Cordniante = rd.randint(0, size_y)
-        if (X_Cordinate, Y_Cordniante) not in bomben:
-            bomben.append((X_Cordinate, Y_Cordniante))
-            durchläufe += 1
-        else:
+        try:
+            X_Cordinate = rd.randint(0, size_x)
+            Y_Cordniante = rd.randint(0, size_y)
+            if (X_Cordinate, Y_Cordniante) not in bomben:
+                bomben.append((X_Cordinate, Y_Cordniante))
+                durchläufe += 1
+            else:
+                continue
+        except:
+            print("Zu viele Bomben")
             continue
     return bomben
         
@@ -48,12 +52,14 @@ def create_button_field(SIZE_X, SIZE_Y, root):
 
 size_x = int(input("Enter the number of columns: "))
 size_y = int(input("Enter the number of rows: "))
+bombengröße_y = size_y -1
+bombengröße_x = size_x -1
 
 root = tk.Tk()
 
 create_button_field(size_x, size_y, root)
 bomb_numbers = int(input("Enter the number of bombs: "))
-bomb_coordinates = bomben(bomb_numbers, size_x, size_y)
+bomb_coordinates = bomben(bomb_numbers, bombengröße_x, bombengröße_y)
 print("Bomben-Koordinaten:", bomb_coordinates)
 
 root.mainloop()
