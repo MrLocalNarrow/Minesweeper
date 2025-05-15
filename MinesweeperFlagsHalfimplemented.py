@@ -59,7 +59,7 @@ def create_button_field(SIZE_X, SIZE_Y, root, bomb_coordinates,bomb_numbers):
                     print(f"flagged tile {x}_{y}")
                 else:
                     tk.messagebox.showinfo("All flags Used!", "All flags Used! Please remove one before adding another.")
-                    return
+                    
             print(f"Flagged tiles: {flagged_coords}")
 
 
