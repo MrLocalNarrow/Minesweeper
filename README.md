@@ -21,7 +21,7 @@ Ein kleines Minesweeper-Projekt, das im Rahmen des Unterrichts im SCRUM-Format e
 10. Feinschliff - *MrLocalNarrow*
 
 
-Spielweise:
+##Spielweise:
 
 Für Minesweeper werden grundsätzlich nur 4 Libraries benutzt:
 *Pillow*
