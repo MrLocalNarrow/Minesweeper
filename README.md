@@ -31,7 +31,7 @@ Für Minesweeper werden grundsätzlich nur 4 Libraries benutzt:
 
 Zum Spielstart einfach Minesweeper im Ordner Starten
 
-##Gameplay-Pic
+##Gameplay
 
 ![image](https://github.com/user-attachments/assets/4c329477-63df-40e9-8773-f646d2c2d8ca)
 
@@ -42,4 +42,4 @@ Für den Spielstart wird die anzahl der Zeilen,Spalten und Bomben benötigt die 
 Das Ziel des Spiels ist es so schnell wie möglich alle Felder ohne Bomben zu klicken, keine Bombe zu treffen und alle Felder auf denen eine Bombe ist mittels einer Flag zu markieren.
 Wenn das Spiel erfolgreich beendet wurde bekommt man eine POP up Message auf der auch die Dauer steht wie lange man für das Spiel gebraucht hat. 
 
-Gameplay:
+
