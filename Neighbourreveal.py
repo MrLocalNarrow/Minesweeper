@@ -5,6 +5,8 @@ import random as rd
 from PIL import Image, ImageTk
 import time
 
+
+
 # Funktion zum Generieren der Bombenpositionen
 def bomben(bomb_numbers, size_x, size_y):
     durchläufe = 0
@@ -59,11 +61,14 @@ def create_button_field(SIZE_X, SIZE_Y, root, bomb_coordinates, bomb_numbers):
 
     flagged_coords = set()
 
-
     flag_img_pil = Image.open("Flagge.png").resize((40, 40))
     flag_img = ImageTk.PhotoImage(flag_img_pil)
 
-    def on_left_click(x, y):
+    counter = 0
+
+    def on_left_click(x, y,counter):
+
+        counter= counter + 1
         if (x, y) in bomb_coordinates:
             end_time = time.time()
             elapsed_time = end_time - start_time
@@ -73,6 +78,7 @@ def create_button_field(SIZE_X, SIZE_Y, root, bomb_coordinates, bomb_numbers):
         else:
             revealed = set()
             aufdecken(x, y, tiles, bomb_coordinates, SIZE_X, SIZE_Y, revealed)
+            return counter
 
     def on_right_click(x, y):
         btn = tiles[x][y]["button"]
@@ -95,8 +101,8 @@ def create_button_field(SIZE_X, SIZE_Y, root, bomb_coordinates, bomb_numbers):
         for y in range(0, SIZE_Y):
             button = Button(grid_frame, width=4, height=2, bg="white", fg="black")
             button.grid(row=y, column=x, padx=2, pady=2)
-            button.bind("<Button-1>", lambda event, x=x, y=y: on_left_click(x, y))
-            button.bind("<Button-3>", lambda event, x=x, y=y: on_right_click( x, y))
+            button.bind("<Button-1>", lambda event, x=x, y=y: on_left_click(x, y,counter))
+            button.bind("<Button-3>", lambda event, x=x, y=y: on_right_click( x, y,counter))
             tiles[x][y] = {
                 "id": f"{x}{y}",
                 "coords": {"x": x, "y": y},
